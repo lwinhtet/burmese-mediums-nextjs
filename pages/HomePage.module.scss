@@ -1,0 +1,84 @@
+@import '@/sass/abstracts/mixins';
+
+.artwork {
+  padding: 0 2.4rem;
+
+  &GalleryGrid {
+    display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    gap: 3.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    // @include respond(phone) {
+    //   grid-template-columns: repeat(1, 1fr);
+    //   justify-content: center;
+    // }
+  }
+}
+
+.filter {
+  display: flex;
+  padding: 5rem 0 3rem 0;
+  justify-content: space-between;
+
+  &Content {
+    display: flex;
+    flex-wrap: wrap;
+    font-weight: 600;
+    gap: 20px;
+
+    @include respond(phone-xs) {
+      width: 100%;
+    }
+  }
+
+  &Content:first-of-type {
+    margin-right: auto;
+  }
+
+  &Content:last-of-type {
+    margin-left: 2rem;
+  }
+
+  &Dropdown:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.multiselect {
+  @include respond(phone-xs) {
+    width: 100% !important;
+  }
+}
+
+.skeletonImg {
+  background: var(--color-grey-light-5);
+  border-radius: var(--border-radius-circle-sm);
+}
+
+.skeletonProfile {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.skeletonProfileImg {
+  display: flex;
+  // flex: 0 0 2rem;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: var(--color-grey-light-5);
+  border-radius: 50%;
+}
+
+.skeletonName {
+  width: 100px;
+  height: 20px;
+  margin: 0 10px;
+  margin-top: -0.4rem;
+  transition: 0.2s all;
+  display: inline-block;
+  border-radius: 20px;
+  background: var(--color-grey-light-5);
+}

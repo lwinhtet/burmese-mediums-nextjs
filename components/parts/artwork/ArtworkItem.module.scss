@@ -1,0 +1,130 @@
+@import '@/sass/abstracts/mixins';
+
+.artwork {
+  &GridItem {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    // transition: all 0.4s ease-in;
+    &:hover .artworkMedia {
+      opacity: 1;
+    }
+    &:hover .artworkName {
+      opacity: 1;
+    }
+  }
+
+  &GridImg {
+    display: block;
+    width: 100%;
+    // object-fit: cover;
+    // height: 24rem;
+    // object-fit: cover;
+    // border-radius: 6px;
+  }
+
+  &Thumbnail {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+
+    a {
+      // position: fixed;
+    }
+  }
+
+  &Name {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    color: var(--color-white);
+    padding: 3rem 1.5rem 1.7rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    @include bot-top-dark-linear-gradient;
+    @include text-ellipsis;
+    @include opacity-transition;
+  }
+
+  &ArtistInfo {
+    display: flex;
+    width: 100%;
+    align-items: flex-end;
+    padding: 1rem 0;
+  }
+
+  &ArtistPhoto {
+    flex: 0 0 2rem;
+    display: flex;
+    justify-content: center;
+
+    &Item {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+      border: 1px solid var(--color-grey-light-4);
+    }
+  }
+
+  &ArtistName {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 10px;
+    margin-top: -0.4rem;
+    transition: 0.2s all;
+
+    @include text-ellipsis;
+
+    &:hover {
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+    }
+  }
+
+  &Media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+
+    // @include top-bot-dark-linear-gradient;
+    // @include opacity-transition;
+    &Icon {
+      font-size: 18px;
+      margin-right: 3px;
+      display: flex;
+      color: var(--color-white);
+    }
+  }
+
+  &Participents,
+  &Info {
+    background-color: var(--color-grey-dark-4);
+    color: var(--color-white);
+    padding: 0 0.6rem;
+    border-radius: 5px;
+    margin-top: -0.4rem;
+    margin-right: 0.4rem;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &Participents:hover,
+  &Info:hover {
+    background-color: var(--color-grey-dark-1);
+  }
+}

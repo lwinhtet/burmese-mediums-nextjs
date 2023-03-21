@@ -1,0 +1,98 @@
+@mixin text-ellipsis {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden !important;
+  text-overflow: ellipsis;
+}
+
+@mixin opacity-transition {
+  opacity: 0;
+  transition: all 0.3s;
+}
+
+@mixin top-bot-dark-linear-gradient {
+  background-image: -webkit-gradient(
+    linear,
+    left bottom,
+    left top,
+    from(transparent),
+    color-stop(90%, rgba(0, 0, 0, 0.6))
+  );
+  // background-image: linear-gradient(
+  //   to top,
+  //   transparent 0%,
+  //   rgba(0, 0, 0, 0.6) 81
+  // );
+}
+
+@mixin bot-top-dark-linear-gradient {
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    left bottom,
+    from(transparent),
+    color-stop(81%, rgba(0, 0, 0, 0.6))
+  );
+  // background-image: linear-gradient(
+  //   to bottom,
+  //   transparent 0%,
+  //   rgba(0, 0, 0, 0.6) 81
+  // );
+}
+
+// MEDIA QUERY MANAGER
+/*
+0 - 600px   : Phone
+600 - 900px : Tablet Portrait
+900 - 1200px: Tablet Landscape
+[1200 - 1800] is where our normal styles apply
+1800px +    : Big destop
+*/
+
+/*
+$breakpoint
+- phone
+- tab-port
+- tab-land
+- big-destop
+
+1em -> 16px
+for 600px we do -> 600/16 = 37.5em
+*/
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone-xs {
+    @media screen and (max-width: 555px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == phone {
+    // for 600px
+    // we do -> 600/16 = 37.5em
+    @media screen and (max-width: 600px) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-port {
+    // for 900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == tab-land {
+    // for 1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+
+  @if $breakpoint == big-destop {
+    // 1800 and + so use min-width
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

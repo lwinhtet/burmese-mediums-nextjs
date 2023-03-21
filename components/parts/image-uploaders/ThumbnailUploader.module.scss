@@ -1,0 +1,74 @@
+@import '@/sass/abstracts/mixins';
+
+.subheader {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 15px -15px;
+  // color: var(--color-grey-dark-2);
+}
+
+.imgInput {
+  display: none;
+}
+
+// important
+.imgContainer {
+  position: relative;
+  width: 400px;
+  height: 400px;
+}
+
+.thumbnailImg {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 6px;
+}
+
+.tempImg {
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
+
+.tn {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  width: stretch;
+
+  @include respond(tab-port) {
+    margin: 0 4rem;
+  }
+
+  @include respond(phone) {
+    margin: 0;
+  }
+
+  &Container {
+    max-width: 400px;
+  }
+
+  &Placeholder {
+    position: relative;
+    border-radius: 6px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+      rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    // border: 1px dashed var(--color-border-grey-dark);
+    // background-color: var(--color-grey-light-7);
+    margin-bottom: 1.5rem;
+    cursor: pointer;
+  }
+}
+
+.actions {
+  & > button:not(:last-of-type) {
+    margin-right: 5px;
+  }
+}
+
+.placeholder {
+  font-size: 1.4rem;
+  color: var(--color-grey-dark-2);
+}

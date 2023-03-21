@@ -1,0 +1,14 @@
+.footer {
+  background-color: $color-grey-dart-3;
+  padding: 0.5rem 3rem;
+  font-size: 1.4rem;
+
+  &__logo-box {
+    text-align: center;
+  }
+
+  &__logo {
+    width: 3rem;
+    height: auto;
+  }
+}

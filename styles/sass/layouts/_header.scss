@@ -1,0 +1,27 @@
+.header {
+  position: relative;
+  height: 40rem;
+  background-image: linear-gradient(
+      to right bottom,
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.3)
+    ),
+    url('/img/hotel-2.jpg');
+  background-size: cover;
+  background-position: center;
+  border-bottom: var(--color-grey-light-2);
+
+  @include respond(phone) {
+    padding-top: var(--sm-navbar-height);
+  }
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  // @media (min-width: 56.25em) {
+  //   .header {
+  //     display: none;
+  //   }
+  // }
+}

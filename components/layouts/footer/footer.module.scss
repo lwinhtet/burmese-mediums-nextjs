@@ -1,0 +1,15 @@
+.container {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+}
+
+.footer {
+  height: var(--footer-height);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  color: var(--color-grey-dark-2);
+  font-weight: 500;
+}

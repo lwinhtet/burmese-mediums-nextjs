@@ -1,0 +1,58 @@
+[
+  {
+    "title": "Artwork 1",
+    "asset": {
+      "url": "/img/photos/1.jpeg",
+      "fileType": "png"
+    },
+    "team": true,
+    "info": false,
+    "slug": "artwork-1",
+    "user": {
+      "name": "John Doe",
+      "profilePhotoURL": "/img/user-1.jpg"
+    }
+  },
+  {
+    "title": "Artwork 2",
+    "slug": "artwork-2",
+    "asset": {
+      "url": "/img/photos/2.jpg",
+      "fileType": "jpg"
+    },
+    "team": true,
+    "info": true,
+    "user": {
+      "name": "Emily Watson",
+      "profilePhotoURL": "/img/user-4.jpg"
+    }
+  },
+  {
+    "title": "Artwork 3",
+    "slug": "artwork-3",
+    "asset": {
+      "url": "/img/photos/4.jpeg",
+      "fileType": "jpeg"
+    },
+    "team": true,
+    "info": false,
+    "user": {
+      "name": "Jorden Henderson",
+      "profilePhotoURL": "/img/user-5.jpg"
+    }
+  },
+  {
+    "title": "Artwork 4",
+    "slug": "artwork-4",
+    "asset": {
+      "url": "/img/photos/5.png",
+      "fileType": "png"
+    },
+    "team": true,
+    "info": true,
+    "user": {
+      "name": "Cody Gakpo",
+      "profilePhotoURL": "/img/user-3.jpg"
+    }
+  }
+]

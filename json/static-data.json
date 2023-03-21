@@ -1,0 +1,80 @@
+{
+  "softwares": [
+    {
+      "id": 1,
+      "name": "Blender"
+    },
+    {
+      "id": 2,
+      "name": "Unreal Engine"
+    },
+    {
+      "id": 3,
+      "name": "Maya"
+    },
+    {
+      "id": 4,
+      "name": "Substance Painter"
+    },
+    {
+      "id": 5,
+      "name": "Houdini"
+    }
+  ],
+  "topics": [
+    {
+      "id": 1,
+      "name": "Web & App Design"
+    },
+    {
+      "id": 2,
+      "name": "Motion Graphics"
+    },
+    {
+      "id": 3,
+      "name": "Character Design"
+    },
+    {
+      "id": 4,
+      "name": "Architectural"
+    },
+    {
+      "id": 5,
+      "name": "Automotive"
+    }
+  ],
+  "mediums": [
+    {
+      "id": 1,
+      "name": "Digital 2D"
+    },
+    {
+      "id": 2,
+      "name": "Digital 3D"
+    },
+    {
+      "id": 3,
+      "name": "Animation"
+    },
+    {
+      "id": 4,
+      "name": "CG/VFX"
+    },
+    {
+      "id": 5,
+      "name": "Traditional Drawing"
+    },
+    {
+      "id": 6,
+      "name": "Traditional Paint"
+    },
+    {
+      "id": 7,
+      "name": "Traditional Sculpture"
+    },
+    {
+      "id": 8,
+      "name": "Mixed"
+    }
+  ]
+}

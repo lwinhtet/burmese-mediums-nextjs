@@ -1,0 +1,47 @@
+.content {
+  display: none;
+  position: absolute;
+  max-width: 250px;
+  min-width: stretch;
+  // width: calc(max-content + 10px);
+  z-index: 1;
+  bottom: 44px;
+  max-height: 180px;
+  border: 1px solid var(--color-grey-light-4);
+  border-radius: var(--border-radius-circle-sm);
+  background-color: var(--color-white);
+  animation: growUp 100ms ease-in-out forwards;
+  transform-origin: bottom center;
+  box-shadow: var(--input-focus-success);
+  -webkit-box-shadow: var(--input-focus-success);
+}
+
+.tagContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.open {
+  display: block;
+}
+
+.inputWrapper {
+  // margin-top: 20rem;
+  position: relative;
+  // padding: 3px 0;
+  // border-radius: 3px;
+  // border: 1px solid var(--color-border-grey-dark);
+}
+
+@keyframes growUp {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

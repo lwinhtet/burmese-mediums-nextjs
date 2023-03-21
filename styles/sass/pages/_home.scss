@@ -1,0 +1,285 @@
+.book {
+  border-radius: 3px;
+  box-shadow: 0 1.5rem 4rem rgba($color-black, 0.2);
+  height: 30rem;
+  background-color: #e9e9e9;
+  &__form {
+    width: 50%;
+    padding: 6rem;
+  }
+}
+
+.filter {
+  display: flex;
+  padding: 2.5rem;
+  justify-content: space-between;
+
+  &-content {
+    display: flex;
+    font-weight: 700;
+  }
+
+  &-content:first-of-type {
+    margin-right: auto;
+  }
+
+  &-dropdown {
+    position: relative;
+    font-size: 1.2em;
+    padding: 0.7rem 1.8rem;
+    border: 1px solid var(--color-border-grey-dark);
+    border-radius: 3px;
+    cursor: pointer;
+
+    &-badges {
+      position: absolute;
+      top: -10px;
+      right: 2px;
+      font-size: 1rem;
+      padding: 0 0.5rem;
+      border: 1px solid var(--color-primary-light);
+      border-radius: 3px;
+      color: var(--color-white);
+      background-color: var(--color-primary-light);
+    }
+  }
+
+  &-toggle {
+    display: flex;
+    margin-right: 1.5rem;
+    align-items: end;
+
+    @include respond(phone) {
+      display: none;
+    }
+
+    &-icon {
+      /* padding: 0.7rem 1.8rem; */
+      border: 1px solid var(--color-border-grey-dark);
+      border-radius: 3px;
+      cursor: pointer;
+      display: flex;
+      width: 3rem;
+      height: 2.6rem;
+    }
+
+    &-icon:not(:last-child) {
+      margin-right: 0.5rem;
+    }
+  }
+
+  &-dropdown:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.artwork {
+  padding: 1.1rem 2.4rem;
+
+  &-gallery-grid {
+    display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    gap: 3.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    // @include respond(phone) {
+    //   grid-template-columns: repeat(1, 1fr);
+    //   justify-content: center;
+    // }
+  }
+
+  &-grid-item {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    // transition: all 0.4s ease-in;
+    &:hover .artwork-media {
+      opacity: 1;
+    }
+    &:hover .artwork-name {
+      opacity: 1;
+    }
+  }
+
+  &-grid-img {
+    display: block;
+    width: 100%;
+    // height: 24rem;
+    // object-fit: cover;
+    // border-radius: 6px;
+  }
+
+  &-thumbnail {
+    position: relative;
+    padding-bottom: 75%;
+    height: 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+
+  &-name {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    display: flex;
+    width: 100%;
+    color: var(--color-white);
+    padding: 3rem 1.5rem 1.7rem 1.5rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+    border-radius: 4px;
+    border-bottom-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    @include bot-top-dark-linear-gradient;
+    @include text-ellipsis;
+    @include opacity-transition;
+  }
+
+  &-artist-info {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    padding: 1rem 0;
+  }
+
+  &-artist-photo {
+    flex: 0 0 2rem;
+    display: flex;
+    justify-content: center;
+
+    &-item {
+      border-radius: 50%;
+      width: 24px;
+      height: 24px;
+    }
+  }
+
+  &-artist-name {
+    flex: 1;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 8px;
+    margin-top: -0.4rem;
+
+    @include text-ellipsis;
+  }
+
+  &-media {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    padding: 0.8rem 1rem;
+    width: 100%;
+    border-top-right-radius: 4px;
+    border-top-left-radius: 4px;
+    // @include top-bot-dark-linear-gradient;
+    // @include opacity-transition;
+    &-icon {
+      font-size: 18px;
+      margin-right: 3px;
+      display: flex;
+      color: var(--color-white);
+    }
+  }
+
+  &-participents,
+  &-info {
+    background-color: var(--color-grey-dark-4);
+    color: var(--color-white);
+    padding: 0 0.6rem;
+    border-radius: 5px;
+    margin-top: -0.4rem;
+    margin-right: 0.4rem;
+    font-size: 11px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  &-participents:hover,
+  &-info:hover {
+    background-color: var(--color-grey-dark-1);
+  }
+}
+
+.icon-basic-picture-multiple:before,
+.icon-basic-video:before {
+  padding: 0.2rem 0.45rem;
+  background-color: var(--color-grey-dark-4);
+  border-radius: 4px;
+}
+
+////////////////////////////////////////////////
+///
+
+.overview,
+.user-reviews {
+  padding: 1rem 3rem;
+}
+.review {
+  position: relative;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-light);
+  padding: 3rem;
+  margin-bottom: 3rem;
+  font-size: 1.4rem;
+  width: 20rem;
+  overflow: hidden;
+
+  &-text {
+    margin-bottom: 2rem;
+    position: relative;
+    z-index: 10;
+  }
+
+  &-user {
+    display: flex;
+    align-items: center;
+  }
+
+  &-photo {
+    height: 4.5rem;
+    width: 4.5rem;
+    border-radius: 50%;
+  }
+
+  &-user-box {
+    margin-left: 0.2rem;
+  }
+
+  &::before {
+    content: '\201C';
+    font-family: sans-serif;
+    position: absolute;
+    top: -2.75rem;
+    left: -1rem;
+    font-size: 20rem;
+    line-height: 1;
+    color: var(--color-grey-light-2);
+    z-index: 1;
+  }
+}
+
+///////////////////////////////////////
+/// ICONS
+/// SVG
+/// if u use svg in css, use mask property
+.d-down-arrow-icon,
+.sizer-icon {
+  height: 14px;
+  width: 14px;
+  align-self: center;
+  /* margin: 0 0.2rem; */
+  text-align: center;
+  margin: 0 auto;
+}
+
+.d-down-arrow-icon {
+  margin: 0 0.2rem;
+}
+
+.overview-stars-icon {
+  height: 1.4rem;
+  width: 1.4rem;
+  fill: var(--color-primary-light);
+}

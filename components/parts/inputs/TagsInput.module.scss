@@ -1,0 +1,30 @@
+// https://stackoverflow.com/questions/8114657/how-to-style-the-parent-element-when-hovering-a-child-element
+
+.inputWrapper {
+  width: 100%;
+  // display: inline-flex;
+  // flex-wrap: wrap;
+  align-items: center;
+  padding: 0 5px;
+  margin-top: 5px;
+  border-radius: var(--border-radius-circle-sm);
+  // border: 1px solid var(--color-border-grey-dark);
+  background: var(--input-background);
+  transition: 0.2s all;
+}
+
+.tagWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.tagsInput {
+  display: inline-block;
+  padding: 3px 8px;
+  outline: none;
+  border: none;
+  font-size: 1.4rem;
+  word-break: break-all;
+}

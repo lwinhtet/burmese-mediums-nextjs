@@ -1,0 +1,93 @@
+@import '@/sass/abstracts/mixins';
+
+.spDropdown {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 600;
+  width: 150px;
+  color: #868686;
+  padding: 15px 18px;
+  border: 1px solid var(--color-border-grey-dark);
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--color-white);
+
+  &:not(:last-child) {
+    // margin-right: 2rem;
+  }
+
+  @include respond(phone-xs) {
+    padding: 10px 18px;
+  }
+}
+
+.spDropdown.open .content {
+  display: block;
+}
+
+.badges {
+  position: absolute;
+  top: -8px;
+  right: 2px;
+  font-size: 10px;
+  padding: 1px 3px;
+  border: 1px solid var(--color-primary-light);
+  border-radius: 3px;
+  color: var(--color-white);
+  background-color: var(--color-primary-light);
+}
+
+.dDownArrowIcon {
+  height: 14px;
+  width: 14px;
+  margin: 0 1px;
+  color: #868686;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  min-width: stretch;
+  max-width: 24rem;
+  width: max-content;
+  max-height: 20rem;
+  top: 52px;
+  z-index: 1;
+  overflow: auto;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-grey-dark);
+  border-radius: 6px;
+  animation: growDown 100ms ease-in-out forwards;
+  transform-origin: top center;
+
+  @include respond(phone-xs) {
+    top: 40px;
+  }
+
+  &Right {
+    right: 0;
+  }
+
+  &Left {
+    left: 0;
+  }
+}
+
+.label {
+  margin-left: 10px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

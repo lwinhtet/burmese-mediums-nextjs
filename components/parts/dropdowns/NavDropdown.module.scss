@@ -1,0 +1,112 @@
+.spDropdown {
+  position: relative;
+  border-radius: 50%;
+  border: none;
+  // border: 3px solid var(--color-border-grey-dark);
+}
+
+.spDropdown.open .content {
+  display: block;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  min-width: stretch;
+  max-width: 24rem;
+  width: max-content;
+  top: 44px;
+  z-index: 1;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
+    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  background-color: var(--color-white);
+  /* border: 1px solid var(--color-border-grey-dark); */
+  border-radius: var(--border-radius-circle-sm);
+  animation: ProfileDropdown_growDown__EKQ8f 100ms ease-in-out forwards;
+  transform-origin: top center;
+
+  &Right {
+    right: -10px;
+  }
+
+  &Left {
+    left: -10px;
+  }
+}
+
+.user {
+  &Profile {
+    border-radius: 50%;
+    cursor: pointer;
+    vertical-align: middle;
+    border: 1px solid var(--color-border-grey-dark);
+  }
+}
+
+.setting {
+  padding: 6px;
+  background: var(--color-white);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+
+  &Svg {
+    width: 14px;
+    height: 14px;
+    cursor: pointer;
+  }
+}
+
+.list {
+  padding: 2.8rem 0;
+  color: var(--color-grey-dark-4);
+  font-size: 1.3rem;
+  font-weight: 500;
+
+  hr {
+    // margin: 4px 16px;
+    margin: 0.4rem 3rem;
+    border-top: var(--color-grey-dark-4);
+  }
+
+  &Item {
+    width: 100%;
+    text-align: start;
+    padding: 1.4rem 4rem;
+  }
+
+  & > li {
+    display: flex;
+    // padding: 0 3rem;
+    cursor: pointer;
+    transition: 0.2s all;
+
+    a {
+      width: 100%;
+    }
+
+    &:hover {
+      background-color: var(--color-grey-light-5);
+    }
+
+    &[class='autocomplete-active'] {
+      background-color: var(--color-grey-light-5);
+    }
+  }
+
+  & input[type='checkbox']:focus {
+    box-shadow: 1px 1px 5px 1px rgba(20, 143, 75, 0.73);
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

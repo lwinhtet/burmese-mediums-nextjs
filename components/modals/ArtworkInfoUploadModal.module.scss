@@ -1,0 +1,94 @@
+@import '@/sass/abstracts/mixins';
+
+.modalContainer {
+  max-width: 600px;
+  padding: 7rem 4rem;
+}
+
+.body {
+  padding: 0 20px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+
+  & > p {
+    font-weight: 600;
+    font-size: 2rem;
+  }
+
+  button {
+    font-size: 1.3rem;
+    padding: 6px;
+    margin-left: 10px;
+    color: var(--color-grey-dark-1);
+    background-color: var(--color-white);
+    border: 1px solid var(--color-grey-light-4);
+    border-radius: var(--border-radius-circle-sm);
+    cursor: pointer;
+  }
+}
+
+.container {
+  display: block;
+}
+
+.content1,
+.content2 {
+  // flex-basis: 300px;
+  // flex-shrink: 0;
+  width: 100%;
+}
+
+.checkboxSelectorWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 5px;
+}
+
+.checkboxSelector {
+  position: relative;
+  display: inline-block;
+  font-size: 1.3rem;
+  font-weight: 600;
+  padding: 1.5rem 2rem;
+  border-radius: var(--border-radius-circle-sm);
+  background: var(--input-background);
+  cursor: pointer;
+  transition: 0.4s all;
+
+  &:hover {
+    background-color: var(--color-grey-light-6);
+  }
+
+  input {
+    margin-right: 10px;
+  }
+
+  & label:before {
+    position: absolute; /* being part of the label,lets stick it and let it catch the pointer-events */
+    content: ''; /*make it be */
+    /* size it to cover the closest relative(or absolute/fixed) parent */
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    cursor: pointer;
+  }
+}
+
+.submit {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.divide {
+  margin: 4rem 0;
+  border-top: 1px solid var(--color-grey-light-1);
+}

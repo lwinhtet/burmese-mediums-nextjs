@@ -1,0 +1,64 @@
+@import '@/sass/abstracts/mixins';
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+  font-weight: 500;
+  // padding-bottom: 1.5rem;
+}
+
+.actions {
+  // margin: 0 1.4rem;
+
+  & > a:not(:last-of-type) {
+    margin-right: 8px;
+  }
+}
+
+.highlight {
+  font-size: 2rem;
+  // font-weight: 400;
+  /* letter-spacing: 3px; */
+  // padding: 0 4px;
+  color: var(--color-primary);
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+
+  @include respond(tab-port) {
+    display: block;
+    // flex-direction: column;
+    // align-items: center;
+  }
+}
+
+.tn {
+  flex: 1;
+  min-width: 280px;
+  max-width: 400px;
+  width: stretch;
+
+  @include respond(tab-port) {
+    margin: 0 4rem;
+  }
+
+  @include respond(phone) {
+    margin: 0;
+  }
+
+  &Container {
+    max-width: 400px;
+  }
+
+  &Placeholder {
+    position: relative;
+    border-radius: 6px;
+    border: 1px dashed var(--color-border-grey-dark);
+    background-color: var(--color-grey-light-7);
+    margin-bottom: 1.5rem;
+  }
+}

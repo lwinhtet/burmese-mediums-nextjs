@@ -1,0 +1,89 @@
+@import '@/sass/abstracts/mixins';
+
+.container {
+  display: grid;
+  margin: 7rem 4.2rem;
+  // grid-template-columns: minmax(320px, 450px) minmax(320px, 100%);
+  grid-template-columns: 320px minmax(320px, 100%);
+  grid-template-rows: minmax(100px, max-content) auto;
+
+  @include respond(tab-port) {
+    grid-template-columns: auto;
+    grid-template-rows: auto;
+  }
+
+  h1 {
+    // font-family: sans-serif;
+    // margin: 8rem;
+    // text-align: center;
+    // font-size: 3rem;
+    // font-weight: 100;
+    // color: var(--color-success);
+    font-family: sans-serif;
+    margin: 8rem 0 5rem;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: var(--color-grey-dark-3);
+  }
+}
+
+.description {
+  margin: 40px 0;
+  padding: 0 2rem;
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  .text {
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    font-weight: 300;
+    margin-top: 14px;
+  }
+}
+
+.artwork {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 0 2.4rem;
+  grid-row: span 2;
+
+  @include respond(tab-port) {
+    margin-top: 2rem;
+  }
+}
+
+.imgContainer {
+  position: relative;
+  // box-shadow: var(--image-box-shadow);
+  // margin: 2rem 4.2rem;
+
+  img {
+    // border-radius: var(--border-radius-circle-sm);
+    object-fit: contain;
+  }
+}
+
+.smImgContainer {
+  width: 33.33%;
+  margin: 2rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: var(--image-box-shadow);
+  -webkit-backface-visibility: hidden;
+  -webkit-transform: translateZ(0) scale(1, 1);
+
+  img {
+    object-fit: contain;
+    border-radius: var(--border-radius-circle-sm);
+  }
+}
+
+.imageNotFound {
+  text-align: center;
+  font-size: 1.4rem;
+  color: var(--color-grey-dark-2);
+}

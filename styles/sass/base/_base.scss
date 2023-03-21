@@ -1,0 +1,411 @@
+:root {
+  --color-primary: #008000;
+  --color-primary-light: #59bc59;
+  --color-primary-green: #1d6b1d;
+
+  --color-red: #c22828;
+  --color-red-light-1: #ffd1d1;
+  --color-red-light-2: #f29b9b;
+  --color-red-light-3: #cc8181;
+  --color-white: #fff;
+  --color-black: #000;
+
+  --color-success: #7fad7f;
+
+  --color-grey-light-1: #faf9f9;
+  --color-grey-light-2: #f4f2f2;
+  --color-grey-light-3: #f0eeee;
+  --color-grey-light-4: #ccc;
+  --color-grey-light-5: #f5f5f5;
+  --color-grey-light-6: #e7e7e7;
+  --color-grey-light-7: rgb(0 0 0 / 3%);
+
+  --color-grey-dark-1: #333;
+  --color-grey-dark-2: #777;
+  --color-grey-dark-3: #999;
+  --color-grey-dark-4: rgba(21, 21, 21, 0.6);
+
+  --color-border-grey-light: #e8e8e8;
+  --color-border-grey-dark: #c7c7c7;
+
+  --shadow-dark: 0 2rem 6rem rgba(0, 0, 0, 0.3);
+  --shadow-light: 0 2rem 5rem rgba(0, 0, 0, 0.1);
+  --image-box-shadow: rgb(50 50 93 / 25%) 0px 2px 5px -1px,
+    rgb(0 0 0 / 30%) 0px 1px 3px -1px;
+
+  --border-radius-circle-sm: 10px;
+  --border-radius-circle: 24px;
+
+  --line: 1px solid var(--color-grey-light-2);
+
+  --sm-navbar-height: 56px;
+  --lg-navbar-height: 81px;
+
+  --footer-height: 80px;
+
+  --input-background: #f2f2f2;
+  --input-focus-success: 1px 1px 4px 0px rgba(20, 143, 75, 0.73);
+}
+
+$bp-largest: 75em; // 1200/16 = 75 so we doing this for 1200px screen
+
+@import '../abstracts/_mixins.scss';
+@import '../abstracts/_functions.scss';
+@import '../abstracts/_variables.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: inherit;
+}
+
+html {
+  font-size: 62.5%; // 1rem = 10px; 10px/16px = 62.5%
+  background: var(--color-white);
+  vertical-align: baseline;
+
+  // for 1200px
+  @include respond(tab-land) {
+    font-size: 56.25%; // 1rem = 9px, 9/16 = 56.25%
+  }
+
+  // for 900px
+  @include respond(tab-port) {
+    font-size: 50%; // 1rem = 8px, 8/16 = 50%
+  }
+
+  // min 1800px
+  @include respond(big-destop) {
+    font-size: 75%; // 1rem = 12px, 12/16 = 75%
+  }
+}
+
+body {
+  box-sizing: border-box;
+  // font-family: 'Open Sans', sans-serif;
+  font-weight: 400;
+  line-height: 1.6;
+  // letter-spacing: 0.3px;
+  // color: var(--color-grey-dark-2);
+  color: var(--color-black);
+  min-height: 100vh;
+  background-color: var(--color-white);
+  padding-top: var(--lg-navbar-height);
+  @include respond(phone) {
+    padding-top: var(--sm-navbar-height);
+  }
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+input {
+  &:focus {
+    outline: none;
+  }
+}
+
+.container {
+  padding: 3rem 7rem;
+
+  // @include respond(tab-land) {
+  //   padding: 6rem 8rem;
+  // }
+
+  // @include respond(tab-port) {
+  //   padding: 6rem 8rem;
+  // }
+
+  @include respond(phone) {
+    padding: 3rem 4rem;
+  }
+}
+
+.containerSm {
+  padding: 0 4.2rem;
+}
+
+.wrapper {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  // padding-top: var(--lg-navbar-height);
+
+  // @include respond(tab-port) {
+  //   padding-top: var(--lg-navbar-height);
+  // }
+
+  // @include respond(phone) {
+  //   padding-top: var(--sm-navbar-height);
+  // }
+  // min-height: calc(100vh - var(--default-navbar-height) - 50px);
+}
+
+.myInput {
+  display: inline-block;
+  width: 100%;
+  padding: 10px 12px;
+  margin-top: 5px;
+  border-radius: var(--border-radius-circle-sm);
+  // border: 1px solid var(--color-border-grey-dark);
+  border: none;
+  background: var(--input-background);
+  transition: 0.2s all;
+
+  &:focus {
+    box-shadow: var(--input-focus-success);
+    -webkit-box-shadow: var(--input-focus-success);
+  }
+}
+
+.myList {
+  padding: 0.5rem 0;
+  color: var(--color-grey-dark-4);
+  font-size: 11px;
+  cursor: pointer;
+
+  & > li {
+    position: relative;
+    display: flex;
+    padding: 15px 36px 15px 20px;
+    // padding: 10px 16px;
+    transition: 0.2s all;
+
+    &:hover {
+      background-color: var(--color-grey-light-5);
+    }
+
+    // &[class='autocomplete-active'] {
+    //   background-color: var(--color-grey-light-5);
+    // }
+
+    &.autocomplete-active {
+      background-color: var(--color-grey-light-5);
+    }
+
+    & label:before {
+      position: absolute; /* being part of the label,lets stick it and let it catch the pointer-events */
+      content: ''; /*make it be */
+      /* size it to cover the closest relative(or absolute/fixed) parent */
+      top: 0;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      cursor: pointer;
+    }
+  }
+
+  & > .active {
+    color: var(--color-primary);
+  }
+
+  & input[type='checkbox']:focus {
+    box-shadow: 1px 1px 5px 1px rgba(20, 143, 75, 0.73);
+  }
+}
+
+.hasFocus {
+  box-shadow: var(--input-focus-success);
+  -webkit-box-shadow: var(--input-focus-success);
+}
+
+.pswInputWithShow {
+  display: flex;
+  align-items: center;
+  margin-top: 5px;
+  border-radius: var(--border-radius-circle-sm);
+  border: none;
+  transition: 0.2s all;
+  background: var(--input-background);
+  transition: 0.2s all;
+
+  &:focus-within {
+    box-shadow: var(--input-focus-success);
+    -webkit-box-shadow: var(--input-focus-success);
+  }
+
+  input {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: inherit;
+    border: none;
+    background: var(--input-background);
+  }
+}
+
+.pswView {
+  margin: 0 10px;
+  cursor: pointer;
+}
+
+.myTextarea {
+  font-family: inherit;
+  font-weight: inherit;
+  font-size: 1.3rem;
+  width: 100%;
+  resize: none;
+  background: var(--input-background);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  padding: 12px 15px;
+  margin-top: 6px;
+
+  &:focus {
+    box-shadow: var(--input-focus-success);
+    -webkit-box-shadow: var(--input-focus-success);
+  }
+}
+
+.tagsBlock {
+  display: flex;
+  padding: 6px 8px;
+  font-weight: 500;
+  word-break: break-all;
+  border-radius: 8px;
+  transition: 0.4s all;
+  align-items: center;
+  pointer-events: none;
+  border: 1px solid var(--color-grey-dark-4);
+  background-color: var(--color-border-grey-light);
+
+  // &:not(:last-child) {
+  //   margin-right: 5px;
+  // }
+
+  &:hover {
+    border: 1px solid var(--color-red-light-1);
+    background-color: var(--color-red-light-1);
+  }
+}
+
+.blockLabel {
+  margin-right: 3px;
+  font-size: 1rem;
+}
+
+.blockIcon {
+  display: inline-block;
+  flex-shrink: 0;
+  height: 14px;
+  width: 14px;
+  align-self: center;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  border-radius: 3px;
+  fill: var(--color-red);
+  transition: 0.2s all;
+  pointer-events: auto;
+
+  &:hover {
+    background-color: var(--color-red-light-2);
+    fill: var(--color-white);
+  }
+}
+
+.pageHeader {
+  display: inline-block;
+  padding: 2rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary-green);
+}
+
+.ReactCrop--disabled .ReactCrop__crop-selection {
+  display: none;
+}
+
+.form {
+  width: 100%;
+
+  &-control {
+    display: block;
+    margin-top: 1.5rem;
+
+    & > label {
+      display: block;
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-left: -4px;
+      color: var(--color-grey-dark-1);
+    }
+  }
+}
+
+.line {
+  width: 60%;
+  font-size: 1.2rem;
+  text-align: center;
+  border-bottom: 1px solid var(--color-grey-light-4);
+  line-height: 0.1em;
+  margin: 16px 0 20px;
+
+  & span {
+    background: #fff;
+    padding: 0 10px;
+  }
+}
+
+.artwork {
+  display: block;
+  min-height: 320px;
+
+  &GalleryGrid {
+    display: grid;
+    // grid-template-columns: repeat(4, 1fr);
+    gap: 3.6rem;
+    grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+    // @include respond(phone) {
+    //   grid-template-columns: repeat(1, 1fr);
+    //   justify-content: center;
+    // }
+  }
+}
+
+.defaultErrorMsg {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: var(--color-red-light-1);
+  border-radius: 3px;
+  color: var(--color-red);
+  margin-top: 3px;
+}
+
+.number-input {
+  border: 1px solid #ccc;
+  font-family: inherit;
+  font-size: inherit;
+  padding: 1px 6px;
+}
+
+.dataNotFound {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 2rem;
+  margin: 0 auto;
+  width: fit-content;
+  color: var(--color-red-light-2);
+  background: var(--color-grey-light-2);
+  border-radius: var(--border-radius-circle-sm);
+}
+
+.myToast {
+  font-size: 1.6rem;
+}

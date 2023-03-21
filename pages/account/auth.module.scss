@@ -1,0 +1,225 @@
+@import '@/sass/abstracts/mixins';
+
+.content {
+  width: 100vw;
+  height: calc(100vh - var(--lg-navbar-height) - var(--footer-height));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/bgauth.jpg');
+  background-repeat: round;
+}
+
+.dialog {
+  display: flex;
+  padding: 65px 20px;
+  background-color: var(--color-white);
+  border-radius: var(--border-radius-circle-sm);
+  box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+
+  @include respond(tab-port) {
+    padding: 65px 10px;
+  }
+}
+
+.pictionary {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0rem 6rem;
+  width: 360px;
+
+  @include respond(tab-port) {
+    display: none;
+  }
+
+  & > .picture {
+    width: 270px;
+    height: auto;
+    opacity: 0.8;
+    border-radius: var(--border-radius-circle-sm);
+  }
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 3rem;
+  color: var(--color-grey-dark-1);
+
+  &Header {
+    font-size: 1.6rem;
+    font-weight: 600;
+  }
+
+  &Content {
+    font-size: 1.1rem;
+    padding: 0 1rem;
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
+.login,
+.signup,
+.forgetPsw,
+.resetPsw {
+  width: 340px;
+  // margin: 6rem 0 2rem 0;
+  padding: 0 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--color-grey-dark-1);
+
+  // @include respond(tab-port) {
+  //   margin: 0 1rem;
+  // }
+
+  // @include respond(phone) {
+  //   margin: 0;
+  // }
+
+  // &Form {
+  //   padding: 0 3rem;
+  //   @include respond(tab-port) {
+  //     padding: 0 4.2rem;
+  //   }
+  // }
+
+  &Button {
+    width: 130px;
+    display: block;
+    margin: 0 auto;
+    font-size: 1.5rem;
+    // font-weight: 500;
+    padding: 1.2rem 0;
+    color: var(--color-white);
+    border: 1px solid transparent;
+    border-radius: var(--border-radius-circle-sm);
+    text-decoration: none;
+    transition: all 0.4s;
+    cursor: pointer;
+  }
+}
+
+.logo {
+  width: 8rem;
+  height: auto;
+  // margin: 0 0 2rem;
+  // padding: 4rem 0;
+
+  @include respond(tab-port) {
+    margin: 0 0 4rem;
+  }
+}
+
+.welcome {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin: 30px 0 5px;
+  color: var(--color-primary);
+}
+
+.errorMsg {
+  text-align: center;
+  width: 100%;
+  display: block;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: var(--color-red-light-1);
+  border-radius: 3px;
+  color: var(--color-red);
+  margin-top: 3px;
+}
+
+.successMsg {
+  width: 100%;
+  text-align: center;
+  display: block;
+  font-size: 1.2rem;
+  padding: 10px;
+  background-color: var(--color-success);
+  border-radius: 3px;
+  color: var(--color-white);
+  margin-top: 3px;
+}
+
+.forgetPassword {
+  text-align: right;
+  font-style: italic;
+  font-weight: 400;
+  padding-right: 3px;
+  margin: 1rem 0 3rem 0;
+}
+
+.new {
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin-top: 2rem;
+}
+
+.create {
+  border-bottom: 1px dotted #000;
+  text-decoration: none;
+}
+
+.googleButton {
+  background-color: var(--color-white);
+  border: none;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+
+  & > p {
+    padding: 0 5px;
+  }
+}
+
+.google {
+  width: 3rem;
+  height: 3rem;
+}
+
+.term {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  max-width: 320px;
+  text-align: right;
+  font-size: 11px;
+  color: var(--color-grey-dark-3);
+  font-weight: 400;
+  padding-right: 3px;
+  margin: 1rem 0 3rem 0;
+
+  & > input {
+    margin-top: 2px;
+    cursor: pointer;
+  }
+
+  & > p {
+    padding-left: 10px;
+    text-align: left;
+  }
+}
+
+.forgetPswTitle,
+.resetPswTitle {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin: 2px 0;
+  color: var(--color-primary);
+}
+
+.forgetPswInstruction {
+  font-size: 1.1rem;
+  color: var(--color-grey-dark-3);
+  font-weight: 400;
+  margin-top: 4px;
+}

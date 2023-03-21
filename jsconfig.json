@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/public/*": ["public/*"],
+      "@/sass/*": ["styles/sass/*"],
+      "@/layouts/*": ["components/layouts/*"],
+      "@/modals/*": ["components/modals/*"],
+      "@/parts/*": ["components/parts/*"],
+      "@/forms/*": ["components/forms/*"],
+      "@/data/*": ["components/data/*"],
+      "@/hooks/*": ["hooks/*"],
+      "@/utils/*": ["utils/*"],
+      "@/hoc/*": ["hoc/*"],
+      "@/validation/*": ["validation/*"]
+    }
+  }
+}

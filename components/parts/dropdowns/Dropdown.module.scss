@@ -1,0 +1,61 @@
+.spDropdown {
+  position: relative;
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #868686;
+  width: 150px;
+  padding: 9px 13px;
+  border: 1px solid var(--color-border-grey-dark);
+  border-radius: 6px;
+  cursor: pointer;
+  background-color: var(--color-white);
+
+  &:not(:last-child) {
+    margin-right: 2rem;
+  }
+}
+
+.spDropdown.open .content {
+  display: block;
+}
+
+.dDownArrowIcon {
+  height: 14px;
+  width: 14px;
+  margin: 0 1px;
+}
+
+.content {
+  display: none;
+  position: absolute;
+  min-width: stretch;
+  max-width: 24rem;
+  width: max-content;
+  top: 52px;
+  z-index: 1;
+  background-color: var(--color-white);
+  border: 1px solid var(--color-border-grey-dark);
+  border-radius: 6px;
+  animation: growDown 100ms ease-in-out forwards;
+  transform-origin: top center;
+
+  &Right {
+    right: 0;
+  }
+
+  &Left {
+    left: 0;
+  }
+}
+
+@keyframes growDown {
+  0% {
+    transform: scaleY(0);
+  }
+  80% {
+    transform: scaleY(1.1);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}

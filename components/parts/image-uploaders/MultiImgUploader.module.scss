@@ -1,0 +1,119 @@
+@import '@/sass/abstracts/mixins';
+
+.imgInput {
+  display: none;
+}
+
+.subheader {
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  margin: 0 0 15px -15px;
+  // color: var(--color-grey-dark-2);
+}
+
+.artwork {
+  flex: 2;
+  width: stretch;
+  max-width: 600px;
+  min-width: 280px;
+  margin: 0 4rem;
+
+  @include respond(tab-port) {
+    margin: 0 4rem 2rem 4rem;
+  }
+
+  @include respond(phone) {
+    margin: 0;
+  }
+
+  &Container {
+    width: 100%;
+  }
+
+  & .placeholder {
+    font-size: 1.4rem;
+    color: var(--color-grey-dark-2);
+  }
+}
+
+.bigImageContainer {
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  // border: 1px dashed var(--color-border-grey-dark);
+  // background-color: var(--color-grey-light-7);
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.bigImage {
+  border-radius: inherit;
+  object-fit: contain;
+}
+
+.smImage {
+  position: relative;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+  // border: 1px dashed var(--color-border-grey-dark);
+  border-radius: inherit;
+  // background-color: var(--color-grey-light-7);
+
+  &Container {
+    width: 33.33%;
+    margin: 2rem;
+    border-radius: 4px;
+    cursor: pointer;
+    // to make shaking disappear on hover
+    -webkit-backface-visibility: hidden;
+    -webkit-transform: translateZ(0) scale(1, 1);
+  }
+
+  &Content {
+    font-size: 1rem;
+    color: var(--color-grey-dark-2);
+
+    & > .rmUploadButton {
+      width: 2.5rem;
+      height: 2.5rem;
+      position: absolute;
+      top: -12px;
+      right: -10px;
+      fill: var(--color-grey-dark-2);
+    }
+  }
+
+  & > .image {
+    display: block;
+    width: 100%;
+    object-fit: contain;
+  }
+}
+
+.rmImgButton {
+  width: 2.5rem;
+  height: 2.5rem;
+  position: absolute;
+  top: -11px;
+  right: -8px;
+  fill: var(--color-red-light-2);
+  z-index: 2;
+}
+
+.overlayRmImgButton {
+  width: 1.3rem;
+  height: 1.3rem;
+  top: -6px;
+  right: -3px;
+  background-color: white;
+  position: absolute;
+  z-index: 1;
+}
+
+.selected {
+  width: 98%;
+  margin: 5px auto;
+  border-bottom: 3px solid var(--color-red-light-1);
+  border-radius: 20px;
+}

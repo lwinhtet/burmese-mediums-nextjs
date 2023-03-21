@@ -1,0 +1,70 @@
+.wrapper {
+  margin: 5rem 4.2rem;
+
+  // h1 {
+  //   font-family: sans-serif;
+  //   margin: 8rem 0 5rem;
+  //   text-align: center;
+  //   font-size: 2rem;
+  //   font-weight: 600;
+  //   color: var(--color-grey-dark-3);
+  // }
+}
+
+.profile {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  align-items: center;
+  padding: 8rem 0 6rem 0;
+  margin-bottom: 70px;
+
+  background-image: url(/img/bm/green3.png);
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 300px;
+
+  & .image {
+    border-radius: 50%;
+    border: 1px solid var(--color-border-grey-light);
+  }
+}
+
+.info {
+  text-align: center;
+
+  & > .name {
+    display: block;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-top: 2rem;
+    letter-spacing: 1.6px;
+    color: var(--color-primary-green);
+  }
+
+  & > .job {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+  }
+
+  & > .location {
+    font-size: 1.3rem;
+    font-weight: 400;
+    letter-spacing: 1px;
+    margin-top: 5px;
+  }
+}
+
+// .coverPhotoContainer {
+//   position: relative;
+//   height: 50rem;
+//   overflow: hidden;
+//   background-color: black;
+// }
+
+// .coverPhoto {
+//   opacity: 0.5;
+//   object-fit: cover;
+// }
