@@ -25,9 +25,11 @@ export default function LoginPage() {
   const [isSending, setIsSending] = useState(false);
   const [isError, setIsError] = useState(null);
   const initValue = {
-    email: 'lwinhtet@gmail.com',
-    password: 'qwE12#'
+    email: '',
+    password: ''
   };
+  // email: 'lwinhtet@gmail.com',
+  // password: 'qwE12#'
 
   const { isLoading } = useCheckLogin(redirectIfLogin);
 

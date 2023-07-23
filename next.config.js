@@ -5,14 +5,14 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    remotePatterns: [
-      {
-        protocol: 'http',
-        hostname: 'localhost',
-        port: '8080',
-        pathname: '/img/artworks/**'
-      }
-    ],
+    // remotePatterns: [
+    //   {
+    //     protocol: 'http',
+    //     hostname: 'localhost',
+    //     port: '8080',
+    //     pathname: '/img/artworks/**'
+    //   }
+    // ],
     domains: [
       'storage.googleapis.com',
       'lh1.googleusercontent.com',

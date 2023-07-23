@@ -17,7 +17,7 @@
 
 .filter {
   display: flex;
-  padding: 5rem 0 3rem 0;
+  padding: 5rem 0 2.5rem 0;
   justify-content: space-between;
 
   &Content {
@@ -28,6 +28,7 @@
 
     @include respond(phone-xs) {
       width: 100%;
+      gap: 10px;
     }
   }
 
@@ -46,7 +47,7 @@
 
 .multiselect {
   @include respond(phone-xs) {
-    width: 100% !important;
+    width: 47% !important;
   }
 }
 

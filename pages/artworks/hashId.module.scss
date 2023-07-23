@@ -20,11 +20,11 @@
     // font-weight: 100;
     // color: var(--color-success);
     font-family: sans-serif;
-    margin: 8rem 0 5rem;
-    text-align: center;
-    font-size: 2rem;
+    margin: 2rem 0;
+    /* text-align: center; */
+    font-size: 3rem;
     font-weight: 600;
-    color: var(--color-grey-dark-3);
+    color: var(--color-grey-dark-2);
   }
 }
 
@@ -77,8 +77,8 @@
 
 .smImgContainer {
   width: 33.33%;
-  max-width: 150px;
-  margin: 2rem;
+  max-width: 100px;
+  margin: 1.5rem;
   border-radius: 4px;
   cursor: pointer;
   box-shadow: var(--image-box-shadow);

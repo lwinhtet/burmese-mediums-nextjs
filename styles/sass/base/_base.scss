@@ -117,6 +117,10 @@ input {
   }
 }
 
+h2 {
+  font-weight: 580;
+}
+
 .container {
   padding: 3rem 7rem;
 
@@ -339,7 +343,7 @@ input {
     & > label {
       display: block;
       font-size: 1.2rem;
-      font-weight: 600;
+      font-weight: 580;
       margin-left: -4px;
       color: var(--color-grey-dark-1);
     }
@@ -366,8 +370,10 @@ input {
 
   &GalleryGrid {
     display: grid;
-    // grid-template-columns: repeat(4, 1fr);
-    gap: 3.6rem;
+    // grid-column-gap: 3.8rem;
+    // grid-row-gap: 1.6rem;
+    grid-column-gap: 2rem;
+    grid-row-gap: 2.5rem;
     grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
     // @include respond(phone) {
     //   grid-template-columns: repeat(1, 1fr);

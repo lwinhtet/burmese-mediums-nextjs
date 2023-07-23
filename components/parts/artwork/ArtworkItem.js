@@ -13,10 +13,12 @@ export default function ArtworkItem({ artwork, hideProfile = false }) {
             alt="artwork"
             className={styles.artworkGridImg}
             priority={true}
+            fill
             sizes="(max-width: 768px) 100vw,
               (max-width: 1200px) 50vw,
               33vw"
-            fill
+            placeholder="blur"
+            blurDataURL="/img/placeholder43.png"
           />
 
           <div className={styles.artworkMedia}>

@@ -11,37 +11,33 @@ export default async function handler(req, res) {
       case 'GET':
         {
           const response = await axios.get(endpoint);
-          // console.log(333, response);
-          // res.status(response.status).json(response.data);
           resSuccess(res, response);
         }
         break;
 
-      case 'POST':
-        {
-          console.log('my post');
-          // const data = {
-          //   title: req.body.title,
-          //   artworkFiles: req.body.artworkFiles,
-          //   thumbnailFile: req.body.thumbnailFile,
-          //   description: req.body.description,
-          //   softwares: req.body.softwares,
-          //   topics: req.body.topics,
-          //   tags: req.body.tags,
-          //   mediums: req.body.mediums
-          // };
-
-          // const response = await axios.post(endpoint, data, headerCookie(req));
-          // resSuccess(res, response);
-        }
-        break;
+      // case 'POST':
+      //   {
+      //     // const data = {
+      //     //   title: req.body.title,
+      //     //   artworkFiles: req.body.artworkFiles,
+      //     //   thumbnailFile: req.body.thumbnailFile,
+      //     //   description: req.body.description,
+      //     //   softwares: req.body.softwares,
+      //     //   topics: req.body.topics,
+      //     //   tags: req.body.tags,
+      //     //   mediums: req.body.mediums
+      //     // };
+      //     // const response = await axios.post(endpoint, data, headerCookie(req));
+      //     // resSuccess(res, response);
+      //   }
+      //   break;
 
       default:
         res.setHeader('Allow', ['GET', 'POST']);
         res.status(405).end(`Method ${method} Not Allowed`);
     }
   } catch (error) {
-    // console.log(333, error);
+    console.log('Artwork [HashId] Page Error 💥', error);
     resInternalServerError(res);
   }
 }

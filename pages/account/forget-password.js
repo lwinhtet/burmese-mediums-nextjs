@@ -36,7 +36,6 @@ export default function ForgetPasswordPage() {
         .post('/api/auth/forget-password', inputs)
         .then(res => {
           setIsSuccess(true);
-          // console.log(res.data);
         })
         .catch(err => {
           setIsError(err.response.data.message);
@@ -109,7 +108,7 @@ export default function ForgetPasswordPage() {
   return (
     <>
       <Head>
-        <title>Login</title>
+        <title>Forget Password</title>
       </Head>
       <AuthNavigation />
       <div className={styles.content}>

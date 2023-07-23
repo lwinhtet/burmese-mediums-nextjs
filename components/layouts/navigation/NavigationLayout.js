@@ -13,7 +13,7 @@ const NAVITEMS = [
   {
     id: 1,
     name: 'Marketplace',
-    url: ''
+    url: '/'
   },
   {
     id: 2,
@@ -23,17 +23,17 @@ const NAVITEMS = [
   {
     id: 3,
     name: 'Jobs',
-    url: ''
+    url: '/'
   },
   {
     id: 4,
     name: 'Hire',
-    url: ''
+    url: '/'
   },
   {
     id: 5,
     name: 'Tutorials',
-    url: ''
+    url: '/'
   }
 ];
 
@@ -70,7 +70,11 @@ function NavigationLayout() {
 
   const navItems = className =>
     NAVITEMS.map(val => {
-      return (
+      return className === 'nav-collapse-menu-item' ? (
+        <li key={val.id} className={className} onClick={() => setIsOpen(false)}>
+          <Link href={val.url}>{val.name}</Link>
+        </li>
+      ) : (
         <li key={val.id} className={className}>
           <Link href={val.url}>{val.name}</Link>
         </li>
@@ -117,7 +121,9 @@ function NavigationLayout() {
         </ul>
       </div>
       <div className="nav-xs-logo min-d-none-xs">
-        <Image src={logo} alt="Logo" className="nav_logo" priority />
+        <Link href="/">
+          <Image src={logo} alt="Logo" className="nav_logo" priority />
+        </Link>
       </div>
 
       {isLoading ? (

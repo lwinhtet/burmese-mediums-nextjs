@@ -19,7 +19,7 @@ export default async function handler(req, res) {
 
       resLoggedIn(res, response);
     } catch (error) {
-      console.log(444, error);
+      console.log('isLoggedIn Check Error 💥', error);
       resNotLoggedIn(res);
     }
   };

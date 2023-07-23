@@ -1,6 +1,10 @@
 // When we add a utility class, we really want to happen whatever we say in one of these
 // classes, so, we actually want to override everything, use !important
 
+.p-relative {
+  position: relative;
+}
+
 .u-center-text {
   text-align: center !important;
 }

@@ -1,3 +1,4 @@
+import { resError, resInternalServerError } from '@/utils/ResponseHelper';
 import axios from 'axios';
 
 export default async function handler(req, res) {
@@ -15,13 +16,10 @@ export default async function handler(req, res) {
       .post(endpoint, data)
       .then(response => res.status(response.status).json(response.data))
       .catch(error => {
-        console.log(11, error.response);
-        res.status(error.response.status).json(error.response.data);
+        resError(res, error);
+        // res.status(error.response.status).json(error.response.data);
       });
   } catch (error) {
-    res.status(500).json({
-      status: 'error',
-      message: 'Something went wrong! Try again Later.'
-    });
+    resInternalServerError(res);
   }
 }

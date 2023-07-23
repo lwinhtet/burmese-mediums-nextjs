@@ -57,6 +57,16 @@
   }
 }
 
+.nothingToshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  & > p {
+    font-size: 2rem;
+  }
+}
+
 // .coverPhotoContainer {
 //   position: relative;
 //   height: 50rem;

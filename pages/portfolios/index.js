@@ -44,9 +44,69 @@ export default function Portfolios() {
                 Filter
               </button>
             </div>
-            {error && <p>Something went wrong</p>}
+
             {isLoading && <Skeleton />}
-            {isLoading && !portfolios ? (
+            {!isLoading && (error || portfolios?.status == 'fail') && (
+              <div className={styles.errorContainer}>
+                <p className="u-center-text dataNotFound">
+                  Something went wrong!
+                </p>
+              </div>
+            )}
+
+            {!isLoading &&
+              portfolios.status == 'success' &&
+              (portfolios.data.data.length > 0 ? (
+                <ul className={styles.userList}>
+                  {portfolios.data.data.map((portfolio, i) => {
+                    return (
+                      <li key={i} className={styles.userItem}>
+                        <div className={styles.userCard}>
+                          <SmProfile user={portfolio} />
+                          {portfolio.artworks.length > 0 ? (
+                            <div className={styles.artworkCarousel}>
+                              <div className={styles.artworkScroller}>
+                                <div className={styles.userWorks}>
+                                  {portfolio.artworks.map((artwork, i) => {
+                                    return (
+                                      <div key={i} className={styles.picture}>
+                                        <Link
+                                          href={`/artworks/${encodeURIComponent(
+                                            artwork.hashId
+                                          )}`}
+                                        >
+                                          <div className="u-4-3-ratio">
+                                            <Image
+                                              src={getThumbnailImage(
+                                                artwork.thumbnailFile
+                                              )}
+                                              alt="Pic"
+                                              quality={40}
+                                              fill
+                                              sizes="(max-width: 768px) 100vw,
+                                              (max-width: 1200px) 50vw,
+                                              33vw"
+                                            />
+                                          </div>
+                                        </Link>
+                                      </div>
+                                    );
+                                  })}
+                                </div>
+                              </div>
+                            </div>
+                          ) : null}
+                        </div>
+                      </li>
+                    );
+                  })}
+                </ul>
+              ) : (
+                <div className={styles.errorContainer}>
+                  <p className="u-center-text dataNotFound">No data found!</p>
+                </div>
+              ))}
+            {/* {isLoading && !portfolios ? (
               <Skeleton />
             ) : portfolios &&
               portfolios.status == 'success' &&
@@ -99,7 +159,7 @@ export default function Portfolios() {
               <div className={styles.errorContainer}>
                 <p className="u-center-text dataNotFound">No data found!</p>
               </div>
-            )}
+            )} */}
           </section>
         </div>
       </div>

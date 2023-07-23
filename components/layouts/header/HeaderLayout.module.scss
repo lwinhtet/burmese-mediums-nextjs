@@ -1,4 +1,4 @@
-// @import '@/sass/abstracts/mixins';
+@import '@/sass/abstracts/mixins';
 
 // .header {
 //   position: relative;
@@ -22,3 +22,29 @@
 //     display: none;
 //   }
 // }
+
+.container {
+  // padding: 20px;
+  padding: 80px 40px 80px 40px;
+}
+
+.flex {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+}
+
+.text {
+  text-align: right;
+  color: var(--color-grey-dark-3);
+  flex: 0;
+}
+
+.small {
+  font-size: 3rem;
+}
+
+.big {
+  font-size: 5rem;
+  color: var(--color-black);
+}

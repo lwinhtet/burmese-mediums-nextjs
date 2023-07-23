@@ -7,7 +7,7 @@ import useGoogleAuth from '@/hooks/useGoogleAuth';
 import styles from './HomePage.module.scss';
 import useSWR from 'swr';
 import { fetcher, fetcherWithParams } from '@/utils/RequestHelper';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
 
 function HomePage() {
@@ -113,7 +113,6 @@ function HomePage() {
     if (topics.length > 0) string += `&topics=${topics.join(',')}`;
     if (mediums.length > 0) string += `&mediums=${mediums.join(',')}`;
     if (softwares.length > 0) string += `&softwares=${softwares.join(',')}`;
-    // console.log(222, string);
     return string;
   };
 
@@ -176,14 +175,30 @@ function HomePage() {
           </div>
         </section>
         <section className="artwork">
-          {error && <p>Something went wrong</p>}
-          {isLoading && !artworks ? (
+          {isLoading && (
             <div className="artworkGalleryGrid">
               <Skeleton />
             </div>
-          ) : artworks &&
-            artworks.status == 'success' &&
-            artworks.results > 0 ? (
+          )}
+          {!isLoading && (error || artworks?.status == 'fail') && (
+            <p className="u-center-text dataNotFound">Something went wrong!</p>
+          )}
+          {!isLoading &&
+            artworks?.status == 'success' &&
+            (artworks.data.data.length > 0 ? (
+              <div className="artworkGalleryGrid">
+                {artworks.data.data.map((val, i) => (
+                  <ArtworkItem artwork={val} key={i} />
+                ))}
+              </div>
+            ) : (
+              <p className="u-center-text dataNotFound">No data found!</p>
+            ))}
+          {/* {isLoading ? (
+            <div className="artworkGalleryGrid">
+              <Skeleton />
+            </div>
+          ) : artworks.status == 'success' ? (
             <div className="artworkGalleryGrid">
               {artworks.data.data.map((val, i) => (
                 <ArtworkItem artwork={val} key={i} />
@@ -191,7 +206,7 @@ function HomePage() {
             </div>
           ) : (
             <p className="u-center-text dataNotFound">No data found!</p>
-          )}
+          )} */}
         </section>
       </div>
     </div>

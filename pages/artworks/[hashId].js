@@ -6,14 +6,16 @@ import { fetcher, getAssetsImage } from '@/utils/RequestHelper';
 import { useState } from 'react';
 import axios from 'axios';
 import useSWR from 'swr';
+import { useRouter } from 'next/router';
 
 export default function SingleArtworkPage({ artwork }) {
+  const router = useRouter();
   const [select, setSelect] = useState(artwork.artworkFiles[0]);
   const { data, error, isLoading } = useSWR(
     `/api/artworks/${artwork.hashId}`,
     fetcher
   );
-  console.log(data);
+
   const Skeleton = () => {
     return (
       <div className={styles.userCard}>
@@ -32,30 +34,7 @@ export default function SingleArtworkPage({ artwork }) {
     <>
       <div className={styles.container}>
         <div className={styles.artwork}>
-          <div className={styles.imgContainer}>
-            {/* <div className="u-4-3-ratio"> */}
-            {artwork.artworkFiles.length > 0 ? (
-              // <Image
-              //   src={getAssetsImage(select)}
-              //   alt="artwork"
-              //   className={styles.artworkGridImg}
-              //   sizes="(max-width: 768px) 100vw,
-              //   (max-width: 1200px) 50vw,
-              //   33vw"
-              //   fill
-              // />
-              <img
-                src={getAssetsImage(select)}
-                alt="artwork"
-                className={styles.artworkGridImg}
-              />
-            ) : (
-              <p className={`u-center ${styles.imageNotFound}`}>
-                Image not Found!
-              </p>
-            )}
-            {/* </div> */}
-          </div>
+          <h1>{artwork.title}</h1>
           <div className="d-flex">
             {artwork.artworkFiles.map((file, i) => {
               return (
@@ -79,6 +58,54 @@ export default function SingleArtworkPage({ artwork }) {
               );
             })}
           </div>
+          <div className={styles.imgContainer}>
+            {/* <div className="u-4-3-ratio"> */}
+            {artwork.artworkFiles.length > 0 ? (
+              // <Image
+              //   src={getAssetsImage(select)}
+              //   alt="artwork"
+              //   className={styles.artworkGridImg}
+              //   sizes="(max-width: 768px) 100vw,
+              //   (max-width: 1200px) 50vw,
+              //   33vw"
+              //   fill
+              // />
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={getAssetsImage(select)}
+                alt="artwork"
+                className={styles.artworkGridImg}
+              />
+            ) : (
+              <p className={`u-center ${styles.imageNotFound}`}>
+                Image not Found!
+              </p>
+            )}
+            {/* </div> */}
+          </div>
+          {/* <div className="d-flex">
+            {artwork.artworkFiles.map((file, i) => {
+              return (
+                <div
+                  key={i}
+                  className={styles.smImgContainer}
+                  onClick={() => setSelect(file)}
+                >
+                  <div className="u-4-3-ratio">
+                    <Image
+                      src={getAssetsImage(file)}
+                      alt="artwork"
+                      className={styles.artworkGridImg}
+                      sizes="(max-width: 768px) 100vw,
+                  (max-width: 1200px) 50vw,
+                  33vw"
+                      fill
+                    />
+                  </div>
+                </div>
+              );
+            })}
+          </div> */}
         </div>
 
         <div className={styles.profile}>
@@ -137,6 +164,11 @@ export function getStaticPaths() {
 
 export async function getStaticProps(context) {
   const hashId = context.params.hashId;
+  if (!hashId) {
+    return {
+      props: {}
+    };
+  }
   const res = await axios.get(`http://127.0.0.1:3000/api/artworks/${hashId}`);
   // const artwork = JSON.parse(await res.json());
 

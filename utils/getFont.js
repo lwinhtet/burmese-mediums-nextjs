@@ -1,5 +1,4 @@
-import { Open_Sans } from 'next/font/google';
-import { Inter, Quicksand } from 'next/font/google';
+import { Inter, Quicksand, Montserrat, Open_Sans } from 'next/font/google';
 
 export const opensans = Open_Sans({
   // weight: ['300', '400', '600'],
@@ -14,6 +13,12 @@ export const inter = Inter({
 });
 
 export const quicksand = Quicksand({
+  // weight: ['300', '400', '600'],
+  style: 'normal',
+  subsets: ['latin']
+});
+
+export const mont = Montserrat({
   // weight: ['300', '400', '600'],
   style: 'normal',
   subsets: ['latin']

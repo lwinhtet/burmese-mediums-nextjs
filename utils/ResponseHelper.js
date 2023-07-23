@@ -6,10 +6,13 @@ export const resSuccess = (res, responseData) => {
 };
 
 export const resError = (res, error) => {
-  res.status(error?.response?.status).json({
-    status: 'error',
-    message: error?.response?.data?.message
-  });
+  console.error('resError Error 💥', error);
+  error?.response
+    ? res.status(error?.response?.status).json({
+        status: 'error',
+        message: error?.response?.data?.message
+      })
+    : resInternalServerError(res);
 };
 
 export const resInternalServerError = res => {
@@ -68,6 +71,11 @@ export const setLogoutCookie = res => {
 export const getRedirect = pathName => {
   return pathName == '/account/my-profile' || pathName == '/artworks/new';
 };
+// export const getRedirect = router => {
+//   return (
+//     router.asPath == '/account/my-profile' || router.asPath == '/artworks/new'
+//   );
+// };
 
 const path = str => {
   return router.pathname.startsWith(str);

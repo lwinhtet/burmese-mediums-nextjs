@@ -5,7 +5,7 @@
   // border: 3px solid var(--color-border-grey-dark);
 }
 
-.spDropdown.open .content {
+.open .content {
   display: block;
 }
 
@@ -97,6 +97,16 @@
   & input[type='checkbox']:focus {
     box-shadow: 1px 1px 5px 1px rgba(20, 143, 75, 0.73);
   }
+}
+
+.logoutBtn {
+  width: 100%;
+  border: none;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  color: var(--color-grey-dark-4);
+  cursor: pointer;
 }
 
 @keyframes growDown {

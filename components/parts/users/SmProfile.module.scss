@@ -17,27 +17,32 @@
   flex-direction: column;
 }
 
-.job {
-  font-size: 1.3rem;
-  color: var(--color-grey-dark-3);
+.name {
+  font-size: 1.4rem;
+  font-weight: 560;
+}
+
+.profession {
+  font-size: 1rem;
+  color: var(--color-grey-dark-2);
 
   &Icon {
     width: 14px;
     height: 14px;
 
-    fill: var(--color-grey-dark-3);
+    fill: var(--color-grey-dark-2);
   }
 }
 
-.location {
+.city {
   display: flex;
   font-size: 1rem;
-  color: var(--color-grey-dark-3);
+  color: var(--color-grey-dark-2);
 
   &Icon {
     width: 14px;
     height: 14px;
 
-    fill: var(--color-grey-dark-3);
+    fill: var(--color-grey-dark-2);
   }
 }

@@ -21,7 +21,6 @@ const uploadMiddleware = upload.fields([
 
 const resizeImage = (req, res, next) => {
   if (!req.files) return next();
-  // console.log(444, req.files);
   // we store our image in memory to resize and then save it in our project
   // other middleware still need image name, so we passed here
   // resize the image from buffer and store it into our file destination
@@ -89,7 +88,7 @@ router
 export default router.handler({
   onError: (err, req, res) => {
     console.error(err.stack);
-    res.status(500).end('Something broke!');
+    res.status(500).end('Something broke in next-connect: check your code!');
   },
   onNoMatch: (req, res) => {
     res.status(404).end('Page is not found');

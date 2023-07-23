@@ -21,7 +21,7 @@ export default function SmProfile({ user }) {
           </Link>
         </div>
         <div className={styles.info}>
-          <h2>{user?.name ? user.name : '- - -'}</h2>
+          <h2 className={styles.name}>{user?.name ? user.name : '- - -'}</h2>
 
           <p className={styles.profession}>{user?.profession}</p>
           <p className={styles.city}>

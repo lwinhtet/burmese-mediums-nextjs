@@ -37,7 +37,7 @@ export default function ArtworkInfoUploadModal({
   const closeRef = useRef();
 
   const { data } = useSWR('/api/staticdata', fetcher);
-  // console.log(inputs);
+
   const onCheckboxChanges = e => {
     const { value, checked } = e.target;
 

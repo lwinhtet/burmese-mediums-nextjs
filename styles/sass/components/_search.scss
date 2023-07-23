@@ -5,11 +5,12 @@
   background-color: var(--color-grey-light-5);
   // border: 1px solid var(--color-border-grey-dark);
   border-radius: var(--border-radius-circle-sm);
-  transition: all 0.3s;
+  transition: all 0.2s;
 
   // if child is focused parent css changed
   &:focus-within {
-    border: 1px solid var(--color-black);
+    // border: 1px solid var(--color-black);
+    background-color: var(--color-grey-light-6);
   }
 
   &-space {
@@ -19,7 +20,7 @@
 
 .search {
   &-input {
-    padding: 10px 6px;
+    padding: 10px 0px 10px 8px;
     border: 1px solid black;
     max-width: 35rem;
     min-width: 20rem;

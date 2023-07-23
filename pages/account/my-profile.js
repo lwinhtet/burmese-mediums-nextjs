@@ -70,10 +70,7 @@ export default function MyProfilePage({ myUser }) {
   const [isValidationError, setIsValidationError] = useState(null);
   const [isReqSend, setIsReqSend] = useState(false);
   const profileImgRef = useRef();
-  // const [calledPush, setCalledPush] = useState(false);
-  // console.log(333444);
-  // if (calledPush) return;
-  // setCalledPush(true);
+
   useEffect(() => {
     return function cleanup() {
       if (originalBlob) URL.revokeObjectURL(originalBlob);
@@ -389,7 +386,8 @@ export async function getServerSideProps({ req }) {
       }
     })
     .catch(error => {
-      if (error.response.data.error.statusCode === 401) errorCode = true;
+      // if (error?.response?.data?.error?.statusCode === 401) errorCode = true;
+      errorCode = true;
     });
 
   if (errorCode) {

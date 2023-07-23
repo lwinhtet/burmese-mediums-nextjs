@@ -17,8 +17,8 @@ export default function ResetPasswordPage() {
   const [isSending, setIsSending] = useState(false);
   const [isError, setIsError] = useState(null);
   const initValue = {
-    password: 'qwE12$',
-    passwordConfirm: '12345678'
+    password: '',
+    passwordConfirm: ''
   };
 
   const { isLoading } = useCheckLogin({
@@ -94,7 +94,7 @@ export default function ResetPasswordPage() {
     <form onSubmit={handleSubmit} className={`${styles.resetPswForm} form`}>
       <div className="form-control">
         <label htmlFor="password">Password</label>
-        <div className={styles.pswInputWithShow}>
+        <div className="pswInputWithShow">
           <input
             type={showPsw ? 'text' : 'password'}
             name="password"
@@ -105,7 +105,7 @@ export default function ResetPasswordPage() {
             autoCorrect="off"
             required
           />
-          <span className={styles.pswView} onClick={() => setShowPsw(!showPsw)}>
+          <span className="pswView" onClick={() => setShowPsw(!showPsw)}>
             Show
           </span>
         </div>
@@ -113,7 +113,7 @@ export default function ResetPasswordPage() {
 
       <div className="form-control">
         <label htmlFor="password">Confirm Password</label>
-        <div className={styles.pswInputWithShow}>
+        <div className="pswInputWithShow">
           <input
             type={showPswConfirm ? 'text' : 'password'}
             name="passwordConfirm"
@@ -125,7 +125,7 @@ export default function ResetPasswordPage() {
             required
           />
           <span
-            className={styles.pswView}
+            className="pswView"
             onClick={() => setShowPswConfirm(!showPswConfirm)}
           >
             Show

@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import { useEffect } from 'react';
 import router from 'next/router';
 import axios from 'axios';
@@ -28,7 +29,7 @@ export default function useGoogleAuth(
             }
           }
         })
-        .catch(error => console.log(33, error));
+        .catch(error => console.log('Google Auth Error 💥', error));
     } catch (error) {
       resInternalServerError();
     }
@@ -58,5 +59,6 @@ export default function useGoogleAuth(
         google.accounts.id.prompt(); // also display the One Tap dialog
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading, auth]);
 }

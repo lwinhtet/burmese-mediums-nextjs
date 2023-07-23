@@ -25,11 +25,15 @@ export default function SignupPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isError, setIsError] = useState(null);
   const initValue = {
-    name: 'Hlan',
-    email: 'hlan@gmail.com',
-    password: 'qwE12#',
+    name: '',
+    email: '',
+    password: '',
     termAgreed: false
   };
+  // name: 'Hlan',
+  // email: 'hlan@gmail.com',
+  // password: 'qwE12#',
+  // termAgreed: false
 
   const { isLoading } = useCheckLogin({
     redirectTo: '/',
@@ -45,6 +49,7 @@ export default function SignupPage() {
 
       if (!validateFields()) {
         setEmptyPassword();
+        setIsSending(false);
         return;
       }
       axios
@@ -53,12 +58,13 @@ export default function SignupPage() {
           if (res.data.status === 'success') router.push('/account/login');
         })
         .catch(error => {
-          console.log(error);
+          console.log('SignUp Error 💥', error);
           setIsError(error.response.data.message);
         })
         .finally(() => setIsSending(false));
     } catch (error) {
       setEmptyPassword();
+      setIsSending(false);
       setIsError('Something went wrong! Try again Later');
     }
   };

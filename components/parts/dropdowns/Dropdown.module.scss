@@ -1,12 +1,12 @@
 .spDropdown {
   position: relative;
   font-size: 1.3rem;
-  font-weight: 600;
+  font-weight: 500;
+  width: 140px;
   color: #868686;
-  width: 150px;
-  padding: 9px 13px;
+  padding: 13px 18px;
   border: 1px solid var(--color-border-grey-dark);
-  border-radius: 6px;
+  border-radius: 4px;
   cursor: pointer;
   background-color: var(--color-white);
 
@@ -35,7 +35,7 @@
   z-index: 1;
   background-color: var(--color-white);
   border: 1px solid var(--color-border-grey-dark);
-  border-radius: 6px;
+  border-radius: 4px;
   animation: growDown 100ms ease-in-out forwards;
   transform-origin: top center;
 

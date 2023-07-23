@@ -6,7 +6,8 @@ import { useRouter } from 'next/router';
 import axios from 'axios';
 import { getProfileImage } from '@/utils/RequestHelper';
 import ImageWithFallback from '@/utils/ImageWithFallback';
-import { inter } from '@/utils/getFont';
+import { inter, quicksand } from '@/utils/getFont';
+import Image from 'next/image';
 
 // import useSWR from 'swr';
 // import { fetcher } from '@/utils/RequestHelper';
@@ -52,14 +53,27 @@ export default function UserPortfolioPage({ user }) {
             </h2>
           </div>
         </div>
-        {/* <h1>James Bond Works</h1> */}
-        <section className="artwork">
-          <div className="artworkGalleryGrid">
-            {user.artworks.map((val, i) => (
-              <ArtworkItem artwork={val} key={i} hideProfile={true} />
-            ))}
-          </div>
-        </section>
+
+        {user.artworks.length > 0 ? (
+          <section className="artwork">
+            <div className="artworkGalleryGrid">
+              {user.artworks.map((val, i) => (
+                <ArtworkItem artwork={val} key={i} hideProfile={true} />
+              ))}
+            </div>
+          </section>
+        ) : (
+          // <div className={`${quicksand.className} ${styles.nothingToshow}`}>
+          //   <Image
+          //     src="/img/bm/nothing.png"
+          //     width={120}
+          //     height={120}
+          //     alt="No Upload To Show"
+          //   />
+          //   <p>No Upload To Show!</p>
+          // </div>
+          <></>
+        )}
       </div>
     </>
   );

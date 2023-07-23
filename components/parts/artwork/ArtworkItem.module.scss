@@ -27,7 +27,7 @@
     position: relative;
     padding-bottom: 75%;
     height: 0;
-    border-radius: 6px;
+    border-radius: 4px;
     overflow: hidden;
 
     a {
@@ -56,8 +56,8 @@
   &ArtistInfo {
     display: flex;
     width: 100%;
-    align-items: flex-end;
-    padding: 1rem 0;
+    align-items: center;
+    padding: 0.8rem 0 0;
   }
 
   &ArtistPhoto {
@@ -74,17 +74,16 @@
   }
 
   &ArtistName {
-    flex: 1;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 0 10px;
-    margin-top: -0.4rem;
+    flex: 1 1;
+    font-size: 13px;
+    font-weight: 500;
+    padding: 0px 8px;
     transition: 0.2s all;
 
     @include text-ellipsis;
 
     &:hover {
-      text-decoration: underline;
+      // text-decoration: underline;
       text-decoration-thickness: 2px;
     }
   }
@@ -118,7 +117,7 @@
     margin-top: -0.4rem;
     margin-right: 0.4rem;
     font-size: 11px;
-    font-weight: 600;
+    font-weight: 580;
     cursor: pointer;
     transition: all 0.2s;
   }

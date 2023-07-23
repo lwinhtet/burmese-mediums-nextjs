@@ -10,7 +10,6 @@ export default async function handler(req, res) {
       case 'GET':
         {
           const response = await axios.get(endpoint);
-          // console.log(555, response.data);
           // res.status(response.status).json(response.data);
           resSuccess(res, response);
         }

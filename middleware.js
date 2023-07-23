@@ -4,7 +4,7 @@ export default async function middleware(req) {
   const cookie = req.cookies.get('accessToken')?.value;
   // const currentUrl = req.nextUrl?.pathname;
   // console.log(req.headers.get('referer'));
-  if (cookie === undefined) {
+  if (cookie === undefined || cookie === 'logged-out') {
     return NextResponse.redirect(new URL('/account/login', req.url));
   }
   // event.waitUntil(
@@ -19,8 +19,10 @@ export default async function middleware(req) {
 
 export const config = {
   matcher: [
+    '/account/my-profile',
     '/artworks/new',
-    '/api/auth/logout'
+    '/api/auth/logout',
+    '/api/profile'
     // '/account/my-profile',
     // '/about/:path*',
     // '/dashboard/:path*'

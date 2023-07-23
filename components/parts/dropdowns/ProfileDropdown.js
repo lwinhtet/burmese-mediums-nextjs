@@ -32,8 +32,6 @@ export default function ProfileDropdown(props) {
     const response = await axios.post('/api/auth/logout');
     if (response.status === 200) {
       setAuth({ isLoggedIn: false });
-      // localStorage.clear();
-      // sessionStorage.clear();
       getRedirect(router.pathname) ? router.push('/') : null;
     }
     close();
@@ -44,12 +42,10 @@ export default function ProfileDropdown(props) {
   };
 
   return (
-    <>
+    <div className={`p-relative ${isOpen ? styles.open : ''}`}>
       <button
         ref={ref}
-        className={`${inter.className} ${styles.spDropdown} ${
-          isOpen ? styles.open : ''
-        }`}
+        className={`${inter.className} ${styles.spDropdown}`}
         onClick={toggleOpen}
       >
         <ImageWithFallback
@@ -69,52 +65,52 @@ export default function ProfileDropdown(props) {
           width={35}
           height={35}
         /> */}
-        <div
-          ref={contentRef}
-          className={`${styles.content} ${getPositionClass()}`}
-        >
-          <ul className={`list ${styles.list}`}>
-            <li onClick={() => close()}>
-              <Link href="/account/my-profile">
-                <div className={styles.listItem}>Profile</div>
-              </Link>
-            </li>
-            <li onClick={() => close()}>
-              <Link href="/artworks/new">
-                <div className={styles.listItem}>Upload Artwork</div>
-              </Link>
-            </li>
-            <hr />
-            <li onClick={() => close()}>
-              <div className={styles.listItem}>
-                <Link href="/portfolios/slug">My Portfolio</Link>
-              </div>
-            </li>
-            <li onClick={() => close()}>
-              <div className={styles.listItem}>
-                <Link href="">My Collection</Link>
-              </div>
-            </li>
-            <li onClick={() => close()}>
-              <div className={styles.listItem}>
-                <Link href="">Account Setting</Link>
-              </div>
-            </li>
-            <li onClick={() => close()}>
-              <Link href="">
-                <div className={styles.listItem}>Change Password</div>
-              </Link>
-            </li>
-            <hr />
-            <li onClick={() => logout()}>
-              <Link href="">
-                <div className={styles.listItem}>Logout</div>
-              </Link>
-            </li>
-          </ul>
-        </div>
       </button>
-    </>
+      <div
+        ref={contentRef}
+        className={`${styles.content} ${getPositionClass()}`}
+      >
+        <ul className={`list ${styles.list}`}>
+          <li onClick={() => close()}>
+            <Link href="/account/my-profile">
+              <div className={styles.listItem}>Profile</div>
+            </Link>
+          </li>
+          <li onClick={() => close()}>
+            <Link href="/artworks/new">
+              <div className={styles.listItem}>Upload Artwork</div>
+            </Link>
+          </li>
+          <hr />
+          <li onClick={() => close()}>
+            <div className={styles.listItem}>
+              <Link href={`/portfolios/${auth.user.slug}`}>My Portfolio</Link>
+            </div>
+          </li>
+          <li onClick={() => close()}>
+            <div className={styles.listItem}>
+              <Link href="/#">My Collection</Link>
+            </div>
+          </li>
+          <li onClick={() => close()}>
+            <div className={styles.listItem}>
+              <Link href="/#">Account Setting</Link>
+            </div>
+          </li>
+          <li onClick={() => close()}>
+            <Link href="/#">
+              <div className={styles.listItem}>Change Password</div>
+            </Link>
+          </li>
+          <hr />
+          <li onClick={() => logout()}>
+            <button type="button" className={styles.logoutBtn}>
+              <div className={styles.listItem}>Logout</div>
+            </button>
+          </li>
+        </ul>
+      </div>
+    </div>
   );
 
   function toggleOpen(e) {

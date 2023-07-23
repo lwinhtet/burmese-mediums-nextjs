@@ -1,6 +1,6 @@
 import Head from 'next/head';
 import AuthNavigation from '@/layouts/navigation/AuthNavigation';
-import { quicksand, inter } from '@/utils/getFont';
+import { inter } from '@/utils/getFont';
 
 export default function SecondaryLayout({ children }) {
   return (
@@ -14,11 +14,7 @@ export default function SecondaryLayout({ children }) {
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Burmese Mediums</title>
-        <link
-          rel="shortcut icon"
-          type="image/png"
-          href="/img/logo/Gtranstroke.png"
-        />
+        <link rel="shortcut icon" type="image/png" href="/favicon.ico" />
       </Head>
       <AuthNavigation />
       <main>{children}</main>
