@@ -7,10 +7,10 @@ const nextConfig = {
   images: {
     // remotePatterns: [
     //   {
-    //     protocol: 'http',
-    //     hostname: 'localhost',
-    //     port: '8080',
-    //     pathname: '/img/artworks/**'
+    //     protocol: 'https',
+    //     hostname: process.env.SPACES_ENDPOINT,
+    //     port: '',
+    //     pathname: ''
     //   }
     // ],
     domains: [
@@ -20,7 +20,8 @@ const nextConfig = {
       'lh3.googleusercontent.com',
       'lh4.googleusercontent.com',
       'lh5.googleusercontent.com',
-      'lh6.googleusercontent.com'
+      'lh6.googleusercontent.com',
+      'burmesemediums-storage.sgp1.digitaloceanspaces.com'
     ]
   }
 

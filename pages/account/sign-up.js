@@ -6,7 +6,7 @@ import useGoogleAuth from '@/hooks/useGoogleAuth';
 import SecondaryLayout from '@/layouts/secondary/SecondaryLayout';
 import AuthNavigation from '@/layouts/navigation/AuthNavigation';
 import logo from '@/public/img/logo/BGtranstroke.png';
-import pic from '@/public/img/bm/photoshopW.png';
+import pic from '@/public/img/bm/PhotoshopW.png';
 import styles from './auth.module.scss';
 import Footer from '@/layouts/footer/footer';
 import useForm from '@/hooks/useForm';

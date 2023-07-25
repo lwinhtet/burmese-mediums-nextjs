@@ -18,11 +18,13 @@ export const headerCookie = req => {
 };
 
 export const getThumbnailImage = name => {
-  return `/img/thumbnails/${name}`;
+  // return `/img/thumbnails/${name}`;
+  return name;
 };
 
 export const getAssetsImage = name => {
-  return `/img/artworks/${name}`;
+  // return `/img/artworks/${name}`;
+  return name;
 };
 
 export const getProfileImage = (name = null) => {
@@ -42,8 +44,9 @@ export const getProfileImage = (name = null) => {
       if (domains.includes(hostname)) return name;
     }
     // return `/img/users/${name}`;
-    return `/img/users/${name}`;
+    return name;
   }
+
   return '/img/users/default.png';
 };
 

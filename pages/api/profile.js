@@ -4,6 +4,7 @@ import sharp from 'sharp';
 import { headerCookie } from '@/utils/RequestHelper';
 import { resSuccess, resInternalServerError } from '@/utils/ResponseHelper';
 import axios from 'axios';
+import { s3Upload, resizeBuffer, getParams } from '@/utils/spaceUpload';
 
 // image will be stored in memory as buffer
 const multerStorage = multer.memoryStorage();
@@ -11,19 +12,27 @@ const multerStorage = multer.memoryStorage();
 const upload = multer({ storage: multerStorage });
 const uploadMiddleware = upload.single('photo');
 
-const resizeImage = (req, res, next) => {
+const resizeImage = async (req, res, next) => {
   if (!req.file) return next();
   if (req.file) {
-    req.body.photo = `user-${req.body.userId}-${Date.now()}.jpeg`;
-    sharp(req.file.buffer)
-      .resize({
-        width: 96,
-        height: 96
-      })
-      .flatten({ background: { r: 255, g: 255, b: 255, alpha: 255 } })
-      .toFormat('jpeg')
-      .jpeg({ quality: 100 })
-      .toFile(`public/img/users/${req.body.photo}`);
+    // req.body.photo = `user-${req.body.userId}-${Date.now()}.jpeg`;
+    // sharp(req.file.buffer)
+    //   .resize({
+    //     width: 96,
+    //     height: 96
+    //   })
+    //   .flatten({ background: { r: 255, g: 255, b: 255, alpha: 255 } })
+    //   .toFormat('jpeg')
+    //   .jpeg({ quality: 100 })
+    //   .toFile(`public/img/users/${req.body.photo}`);
+    const resizedImageBuffer = await resizeBuffer(req.file.buffer, 96, 96);
+    const params = getParams(
+      `user-${req.body.userId}-${Date.now()}.jpeg`,
+      resizedImageBuffer
+    );
+    const imageUrl = `https://${params.Bucket}.sgp1.digitaloceanspaces.com/${params.Key}`;
+    req.body.photo = imageUrl;
+    await s3Upload(params);
   }
   next();
 };

@@ -1,6 +1,6 @@
 import Image from 'next/image';
-// import bm from '@/public/img/bm/PhotoshopWW.png';
-import bm1 from '@/public/img/bm/boy.jpg';
+import bm from '@/public/img/bm/PhotoshopWW.png';
+// import bm1 from '@/public/img/bm/boy.jpg';
 // import bm2 from '@/public/img/bm/PhotoshopO.png';
 import styles from './HeaderLayout.module.scss';
 import { inter } from '@/utils/getFont';
@@ -10,7 +10,7 @@ export default function HeaderLayout() {
   return (
     <div className={`${styles.container} ${inter.className}`}>
       <div className={styles.flex}>
-        <Image src={bm1} alt="Main Image" width={400} />
+        <Image src={bm} alt="Main Image" width={400} />
         <div className={styles.text}>
           <h1 className={styles.small}>
             Let <span className={styles.big}>Showcase</span> Our Works
